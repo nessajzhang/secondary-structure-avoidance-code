@@ -1,0 +1,52 @@
+import random
+
+def generate_gc_balanced_sequence(length):
+    # Define DNA bases
+    bases = 'ATGC'
+    
+    # Initialize the sequence with a random base
+    sequence = random.choice(bases)
+    
+    # Define GC content target (balanced GC content)
+    target_gc = 0.5
+    
+    for _ in range(length - 1):
+        current_base = sequence[-1]
+        next_base = None
+
+        # Ensure the sequence is GC balanced
+        if current_base == 'G':
+            next_base = random.choice('AT')
+        elif current_base == 'C':
+            next_base = random.choice('AT')
+        else:
+            next_base = random.choice(bases)
+
+        # Ensure the sequence satisfies the homopolymer restriction
+        if len(sequence) >= 4 and sequence[-4:] == next_base * 4:
+            next_base = random.choice(bases)
+
+        sequence += next_base
+
+    return sequence
+
+def count_reverse_complement_pairs(dna_sequence):
+    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+    reverse_complement_pairs = 0
+    
+    for i in range(len(dna_sequence) - 1):
+        if dna_sequence[i] == complement[dna_sequence[i+1]]:
+            reverse_complement_pairs += 1
+    
+    return reverse_complement_pairs
+
+# Generate a 256-length DNA sequence
+sequence_length = 256
+dna_sequence = generate_gc_balanced_sequence(sequence_length)
+
+# Count the number of reverse complement pairs
+reverse_complement_count = count_reverse_complement_pairs(dna_sequence)
+
+print("Generated DNA Sequence:")
+print(dna_sequence)
+print(f"Number of reverse complement pairs: {reverse_complement_count}")
