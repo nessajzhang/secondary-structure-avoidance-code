@@ -1,0 +1,13 @@
+import random
+
+def generate_random_dna_sequence(n):
+    nucleotides = ['A', 'T', 'C', 'G']
+    random_sequence = ''.join(random.choice(nucleotides) for _ in range(n))
+    return random_sequence
+
+# Replace n with the desired length of the DNA sequence
+sequence_length = 50  # For example, generate a DNA sequence of length 50
+random_sequence = generate_random_dna_sequence(sequence_length)
+
+print("Random DNA Sequence:")
+print(random_sequence)
