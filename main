@@ -1,0 +1,20 @@
+m = 18
+
+def count_reverse_complement_pairs(dna_sequence):
+    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+    reverse_complement_pairs = set()
+    
+    for i in range(len(dna_sequence) - m + 1):  # Iterate through m-long sequences
+        sequence = dna_sequence[i:i + m]
+        reverse_complement = ''.join(complement[base] for base in reversed(sequence))
+        
+        if sequence == reverse_complement:
+            reverse_complement_pairs.add((sequence, reverse_complement))
+    
+    return len(reverse_complement_pairs)
+
+# Replace 'your_dna_sequence' with the provided DNA sequence
+your_dna_sequence = "AGCTTAGCTAAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAAGCTTAGCTAAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTA"
+count = count_reverse_complement_pairs(your_dna_sequence)
+
+print(f"Number of 18-long reverse complement pairs: {count}")
