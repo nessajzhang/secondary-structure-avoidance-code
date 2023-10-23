@@ -17,4 +17,4 @@ def count_reverse_complement_pairs(dna_sequence):
 your_dna_sequence = "AGCTTAGCTAAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAAGCTTAGCTAAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTAGCTTA"
 count = count_reverse_complement_pairs(your_dna_sequence)
 
-print(f"Number of 18-long reverse complement pairs: {count}")
+print(f"Number of m-long reverse complement pairs: {count}")
