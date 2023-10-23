@@ -1,6 +1,8 @@
 # secondary-structure-avoidance-code
 codes for secondary structure avoidance for DNA storage
 
+Requirements:random
+
 main: count m-long reverse-complement in your designed DNA sequence
 
 gc-balanced and homopolymers avoiding:example of gc-balance and homopolymers avoiding sequences
